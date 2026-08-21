@@ -8,7 +8,7 @@ const works = [
   { title: "ピザ窯", en: "PIZZA OVEN", tall: true, image: "/images/works/03.png", alt: "手作りのピザ窯" },
   { title: "ローテーブル", en: "LOW TABLE", tall: false, image: "/images/works/05.png", alt: "アイアン脚のローテーブル" },
   { title: "薪ストーブ", en: "WOOD STOVE", tall: true, image: "/images/works/04.png", alt: "溶接で製作した薪ストーブ" },
-  { title: "シェルフ", en: "SHELF", tall: false, image: "/images/works/06.png", alt: "アイアンシェルフ" },
+  { title: "シェルフ", en: "SHELF", tall: false, image: "/images/works/06.jpg", alt: "アイアンシェルフ" },
 ];
 
 export default function Works() {
