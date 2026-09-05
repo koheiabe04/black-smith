@@ -84,7 +84,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${syne.variable}`}>
-      <head>
+      <body className="noise min-h-screen">
         {GA_ID && (
           <>
             <Script
@@ -101,8 +101,6 @@ export default function RootLayout({
             </Script>
           </>
         )}
-      </head>
-      <body className="noise min-h-screen">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[var(--forge)] focus:text-[var(--black)] focus:px-6 focus:py-3 focus:text-sm focus:font-bold"
