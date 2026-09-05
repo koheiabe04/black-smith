@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP, Syne } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LoadingScreen from "../components/LoadingScreen";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto",
@@ -81,6 +84,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${syne.variable}`}>
+      <head>
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
+      </head>
       <body className="noise min-h-screen">
         <a
           href="#main-content"
