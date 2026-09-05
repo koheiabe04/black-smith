@@ -53,14 +53,12 @@ export default function Header() {
                 {item.label.toUpperCase()}
               </Link>
             ))}
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="ml-4 font-display text-[11px] font-bold tracking-[0.2em] text-[var(--black)] bg-[var(--forge)] px-7 py-3 hover:bg-[var(--ember)] transition-colors duration-300"
             >
               CONTACT
-            </a>
+            </Link>
           </nav>
 
           {/* Hamburger */}
@@ -113,10 +111,8 @@ export default function Header() {
             ))}
           </nav>
 
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             onClick={() => setOpen(false)}
             className="mt-12 inline-flex self-start font-display text-sm font-bold tracking-[0.2em] text-[var(--black)] bg-[var(--forge)] px-10 py-4"
             style={{
@@ -126,7 +122,7 @@ export default function Header() {
             }}
           >
             CONTACT →
-          </a>
+          </Link>
 
           <div
             className="absolute bottom-8 left-10 text-[var(--steel)] text-xs"

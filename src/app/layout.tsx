@@ -31,21 +31,12 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://black-smith.jp",
     siteName: "Black Smith",
-    images: [
-      {
-        url: "https://black-smith.jp/images/logo/logo.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Black Smith — 溶接・鉄の加工体験アトリエ",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Black Smith｜溶接・鉄の加工体験アトリエ",
     description:
       "岩手県一関市の溶接・鉄の加工体験アトリエ。欲しければ、作る。壊れたら、直す。",
-    images: ["https://black-smith.jp/images/logo/logo.jpg"],
   },
   verification: {
     google: "ArQ8ut6fk8PtxscwkDHKpClYKJxwklx62b82gQOQ_b0",

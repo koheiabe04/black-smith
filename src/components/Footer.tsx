@@ -7,7 +7,7 @@ const links = [
   { label: "Works", href: "/#works" },
   { label: "FAQ", href: "/#faq" },
   { label: "News", href: "/news" },
-  { label: "Contact", href: "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const socials = [

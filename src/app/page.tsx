@@ -5,6 +5,7 @@ import Marquee from "../components/sections/Marquee";
 import Courses from "../components/sections/Courses";
 import Flow from "../components/sections/Flow";
 import Works from "../components/sections/Works";
+import NewsSection from "../components/sections/NewsSection";
 import FAQ from "../components/sections/FAQ";
 import CTA from "../components/sections/CTA";
 import Access from "../components/sections/Access";
@@ -19,6 +20,7 @@ export default function Home() {
       <Courses />
       <Flow />
       <Works />
+      <NewsSection />
       <FAQ />
       <CTA />
       <Access />
