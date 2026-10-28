@@ -1,7 +1,16 @@
 import Link from "next/link";
 import ScrollReveal from "../ScrollReveal";
+import { articles } from "../../lib/articles";
+
+const categoryLabel: Record<string, string> = {
+  column: "コラム",
+  news: "お知らせ",
+  report: "体験レポート",
+};
 
 export default function NewsSection() {
+  const latest = articles.slice(0, 5);
+
   return (
     <section id="news" className="relative bg-[var(--charcoal)] py-[var(--section-gap)]">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
@@ -26,16 +35,43 @@ export default function NewsSection() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal animation="fade-up" delay={200}>
-            <div className="flex items-center justify-center min-h-[240px] border border-dashed border-[var(--iron)] relative">
-              <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-[var(--steel)]/15" />
-              <div className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-[var(--steel)]/15" />
-              <div className="text-center">
-                <span className="font-display text-[10px] tracking-[0.5em] text-[var(--steel)] font-bold block">NO ARTICLES YET</span>
-                <p className="text-[var(--worn)] text-sm mt-3">まだ記事が投稿されていません</p>
+          <div>
+            {latest.length === 0 ? (
+              <ScrollReveal animation="fade-up" delay={200}>
+                <div className="flex items-center justify-center min-h-[240px] border border-dashed border-[var(--iron)] relative">
+                  <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-[var(--steel)]/15" />
+                  <div className="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-[var(--steel)]/15" />
+                  <div className="text-center">
+                    <span className="font-display text-[10px] tracking-[0.5em] text-[var(--steel)] font-bold block">NO ARTICLES YET</span>
+                    <p className="text-[var(--worn)] text-sm mt-3">まだ記事が投稿されていません</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ) : (
+              <div className="divide-y divide-[var(--iron)]">
+                {latest.map((article, i) => (
+                  <ScrollReveal key={article.slug} animation="fade-up" delay={200 + i * 80}>
+                    <Link
+                      href={`/news/${article.slug}`}
+                      className="group block py-6 first:pt-0"
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <time className="font-display text-[11px] text-[var(--steel)] tracking-wider">
+                          {article.date}
+                        </time>
+                        <span className="px-2 py-0.5 text-[9px] font-bold tracking-wider border border-[var(--forge)]/30 text-[var(--forge)]">
+                          {categoryLabel[article.category] ?? article.category}
+                        </span>
+                      </div>
+                      <h3 className="text-sm md:text-base font-bold text-[var(--cream)] group-hover:text-[var(--forge)] transition-colors duration-300 leading-relaxed">
+                        {article.title}
+                      </h3>
+                    </Link>
+                  </ScrollReveal>
+                ))}
               </div>
-            </div>
-          </ScrollReveal>
+            )}
+          </div>
         </div>
       </div>
     </section>
