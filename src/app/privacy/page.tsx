@@ -8,9 +8,22 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "ホーム", item: "https://black-smith.jp" },
+    { "@type": "ListItem", position: 2, name: "プライバシーポリシー", item: "https://black-smith.jp/privacy" },
+  ],
+};
+
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-[var(--soot)] pt-32 pb-20 md:pt-40 md:pb-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <div className="max-w-[800px] mx-auto px-6">
         <nav className="text-xs text-[var(--steel)] mb-8">
           <Link href="/" className="hover:text-[var(--forge)] transition-colors">

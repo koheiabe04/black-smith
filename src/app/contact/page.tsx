@@ -1,17 +1,31 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "お問い合わせ｜Black Smith",
+  title: "お問い合わせ・ご予約｜溶接体験 Black Smith｜岩手県一関市",
   description:
-    "溶接・鉄の加工体験アトリエ Black Smith へのお問い合わせ・ご予約はこちらから。",
+    "溶接体験・鉄の加工体験のご予約・お問い合わせはこちら。フォームまたはメールで承ります。営業時間: 平日 09:00〜16:00。岩手県一関市のアトリエ Black Smith。",
+  alternates: { canonical: "/contact" },
 };
 
 const FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?embedded=true";
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "ホーム", item: "https://black-smith.jp" },
+    { "@type": "ListItem", position: 2, name: "お問い合わせ", item: "https://black-smith.jp/contact" },
+  ],
+};
+
 export default function ContactPage() {
   return (
     <section className="min-h-screen bg-[var(--soot)] pt-32 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <div className="max-w-[800px] mx-auto px-6 md:px-12">
         <div className="flex items-center gap-4 mb-6">
           <div className="h-[1px] w-8 bg-[var(--forge)]" />
@@ -25,9 +39,9 @@ export default function ContactPage() {
         </h1>
 
         <p className="mt-6 text-sm text-[var(--ash)] leading-[2]">
-          体験のご予約・ご相談は下記フォームよりお気軽にどうぞ。
+          予約でも相談でも、気軽にどうぞ。
           <br />
-          内容を確認の上、折り返しご連絡いたします。
+          内容を確認して、折り返しご連絡します。
         </p>
 
         <div className="mt-10 border border-[var(--iron)] bg-white relative overflow-hidden">

@@ -21,9 +21,9 @@ export default function ThanksPage() {
           ありがとうございます
         </h1>
         <p className="mt-6 text-sm text-[var(--ash)] leading-[1.8]">
-          内容を確認の上、折り返しご連絡いたします。
+          内容を確認して、折り返しご連絡します。
           <br />
-          しばらくお待ちください。
+          少しだけお待ちください。
         </p>
 
         <Link

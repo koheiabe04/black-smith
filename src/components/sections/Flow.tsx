@@ -2,12 +2,12 @@ import Link from "next/link";
 import ScrollReveal from "../ScrollReveal";
 
 const steps = [
-  { num: "01", title: "申込・相談", body: "やってみたいことを伝えるだけ。目的や経験に合わせてクラスを案内します。", cta: true },
-  { num: "02", title: "事前案内", body: "当日の流れや服装の目安をお送りします。特別な準備は不要。" },
-  { num: "03", title: "来場・受付", body: "予約時間に施設へ。受付後、スタッフが流れを案内します。" },
-  { num: "04", title: "体験・製作", body: "簡単な作業から始め、感覚に慣れながら進めます。スタッフが常にサポート。" },
-  { num: "05", title: "完成・確認", body: "仕上がりを確認し、使い方や注意点を案内します。" },
-  { num: "06", title: "振り返り", body: "次にできることを案内。無理な案内は行いません。" },
+  { num: "01", title: "まずは相談", body: "「こんなの作りたい」「溶接やってみたい」——ざっくりでOK。あなたに合うクラスを一緒に探します。", cta: true },
+  { num: "02", title: "事前の案内が届く", body: "当日の流れと服装の目安をお送りします。手ぶらで来てもらって大丈夫。" },
+  { num: "03", title: "来場・受付", body: "予約の時間にアトリエへ。着いたらスタッフが案内するので、迷うことはありません。" },
+  { num: "04", title: "いよいよ製作", body: "最初はかんたんな作業から。感覚をつかみながら進めます。困ったらすぐそばにスタッフがいます。" },
+  { num: "05", title: "完成", body: "できあがったら、使い方やお手入れのコツをお伝えして、お持ち帰り。" },
+  { num: "06", title: "次はどうする？", body: "「次はこんなの作りたい」があれば、また来てください。押し売りはしません。" },
 ];
 
 export default function Flow() {
@@ -30,7 +30,7 @@ export default function Flow() {
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="mt-8 text-[var(--ash)] text-sm leading-[2.3]">
-                はじめてでも大丈夫。申込みから完成まで、迷わず進めるように。
+                はじめてでも心配いりません。申し込みから完成まで、一本道です。
               </p>
             </ScrollReveal>
           </div>

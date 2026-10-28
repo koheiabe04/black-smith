@@ -10,12 +10,14 @@ export default function ScrollReveal({
   delay = 0,
   animation = "fade-up",
   threshold = 0.1,
+  style,
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   animation?: AnimationType;
   threshold?: number;
+  style?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -43,7 +45,7 @@ export default function ScrollReveal({
   }, [delay, threshold]);
 
   return (
-    <div ref={ref} className={`${animation} ${className}`}>
+    <div ref={ref} className={`${animation} ${className}`} style={style}>
       {children}
     </div>
   );

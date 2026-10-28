@@ -20,15 +20,15 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Black Smith｜溶接・鉄の加工体験アトリエ",
+  title: "Black Smith｜溶接体験・鉄の加工体験アトリエ｜岩手県一関市",
   description:
-    "岩手県一関市の溶接・鉄の加工体験アトリエ Black Smith。欲しければ、作る。壊れたら、直す。初心者から上級者まで、暮らしの中で使えるものづくりを体験できます。",
+    "岩手県一関市の溶接体験・鉄の加工体験アトリエ Black Smith。親子で楽しめる溶接チャレンジから、DIYアイアンワーク、オーダーメイド制作、セルフリペアまで。初心者歓迎・6歳から参加OK。東北で唯一の本格溶接ものづくり体験。",
   metadataBase: new URL("https://black-smith.jp"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Black Smith｜溶接・鉄の加工体験アトリエ",
+    title: "Black Smith｜溶接体験・鉄の加工体験アトリエ｜岩手県一関市",
     description:
-      "岩手県一関市の溶接・鉄の加工体験アトリエ。欲しければ、作る。壊れたら、直す。",
+      "岩手県一関市の溶接体験アトリエ。親子で楽しめる溶接チャレンジ、DIYアイアンワーク、オーダーメイド制作まで。初心者歓迎・6歳から。",
     locale: "ja_JP",
     type: "website",
     url: "https://black-smith.jp",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Black Smith｜溶接・鉄の加工体験アトリエ",
+    title: "Black Smith｜溶接体験・鉄の加工体験アトリエ｜岩手県一関市",
     description:
-      "岩手県一関市の溶接・鉄の加工体験アトリエ。欲しければ、作る。壊れたら、直す。",
+      "岩手県一関市の溶接体験アトリエ。親子OK・初心者歓迎。溶接チャレンジからオーダーメイド制作まで。",
   },
   verification: {
     google: "ArQ8ut6fk8PtxscwkDHKpClYKJxwklx62b82gQOQ_b0",
@@ -48,9 +48,11 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Black Smith",
+  "@id": "https://black-smith.jp/#business",
+  name: "Black Smith（ブラックスミス）",
+  alternateName: "Black Smith 溶接体験アトリエ",
   description:
-    "岩手県一関市の溶接・鉄の加工体験アトリエ。初心者から上級者まで、暮らしの中で使えるものづくりを体験できます。",
+    "岩手県一関市の溶接・鉄の加工体験アトリエ。初心者から上級者まで、暮らしの中で使えるものづくりを体験できます。親子での溶接体験、DIYアイアンワーク、修理まで。",
   url: "https://black-smith.jp",
   email: "blacksmith.iwate@gmail.com",
   address: {
@@ -72,8 +74,76 @@ const jsonLd = {
     opens: "09:00",
     closes: "16:00",
   },
-  priceRange: "$$",
+  priceRange: "¥11,000〜¥50,000",
   image: "https://black-smith.jp/images/logo/logo.jpg",
+  areaServed: [
+    { "@type": "City", name: "一関市" },
+    { "@type": "State", name: "岩手県" },
+    { "@type": "AdministrativeArea", name: "東北地方" },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "溶接・鉄の加工体験クラス",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "溶接チャレンジ",
+          description:
+            "初心者向けの溶接体験。6歳から参加可能。アイアンフックやミニスタンドなどを制作できます。",
+          url: "https://black-smith.jp/courses#welding-challenge",
+        },
+        price: "12000",
+        priceCurrency: "JPY",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "クリエイティブ",
+          description:
+            "暮らしに使える鉄のプロダクトを制作。棚、焚き火台、プランターラックなど。12歳から。",
+          url: "https://black-smith.jp/courses#creative",
+        },
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          minPrice: "11000",
+          priceCurrency: "JPY",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "マイデザイン",
+          description:
+            "完全オーダーメイドの鉄製品を設計から制作まで。世界にひとつだけの作品を。12歳から。",
+          url: "https://black-smith.jp/courses#my-design",
+        },
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          minPrice: "50000",
+          priceCurrency: "JPY",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "セルフリペア",
+          description:
+            "壊れた鉄製品を自分の手で修理する体験。椅子の脚、フェンス、農具など。15歳から。",
+          url: "https://black-smith.jp/courses#self-repair",
+        },
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          minPrice: "11000",
+          priceCurrency: "JPY",
+        },
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

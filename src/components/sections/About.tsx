@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "../ScrollReveal";
 import Counter from "../Counter";
 
@@ -9,9 +10,9 @@ const stats = [
 ];
 
 const principles = [
-  { n: "01", t: "初めての人でも、参加できる" },
-  { n: "02", t: "経験に応じて、できることが広がる" },
-  { n: "03", t: "何を作るかは、自分で考える" },
+  { n: "01", t: "触ったことがなくても、大丈夫" },
+  { n: "02", t: "やるほどに、できることが増えていく" },
+  { n: "03", t: "何を作るかは、あなた次第" },
 ];
 
 export default function About() {
@@ -54,24 +55,23 @@ export default function About() {
           <div className="lg:pt-16">
             <ScrollReveal animation="reveal-up" delay={200}>
               <h2 className="text-[clamp(1.8rem,4.5vw,3.8rem)] font-black leading-[1.15] tracking-tight text-[var(--cream)]">
-                溶接を学び、
+                買うより、
                 <br />
-                <span className="text-[var(--forge)]">自分の手</span>で
+                <span className="text-[var(--forge)]">作る</span>ほうが
                 <br />
-                暮らしを作る。
+                おもしろい。
               </h2>
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={300}>
               <p className="mt-10 text-[var(--ash)] text-[15px] leading-[2.3] max-w-[500px]">
-                Black
-                Smithは、岩手県一関市にある溶接・金属加工の体験アトリエです。棚やストーブなどの実用品づくりから、壊れた道具の修理まで、プロの設備を使って自分の手でものづくりを体験できます。
+                岩手県一関市の、溶接と金属加工のアトリエ。棚やストーブみたいな暮らしの道具から、壊れたものの修理まで。プロの設備を使って、自分の手で作って、持って帰る。それがBlack Smithです。
               </p>
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={400}>
               <p className="mt-6 text-[var(--worn)] text-sm leading-[2] border-l-2 border-[var(--forge)]/30 pl-5">
-                用意されたものを作る場所ではありません。自分で考え、自分で作る場所です。
+                キットを組み立てる場所じゃない。何を作るかは、あなたが決める。
               </p>
             </ScrollReveal>
 
@@ -120,6 +120,21 @@ export default function About() {
             </ScrollReveal>
           </div>
         </div>
+      </div>
+
+      {/* Internal link to courses */}
+      <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 pb-8">
+        <ScrollReveal animation="fade-up" delay={700}>
+          <Link
+            href="/courses"
+            className="group inline-flex items-center gap-3 font-display text-xs font-bold tracking-[0.2em] text-[var(--cream)] border-b border-[var(--forge)]/40 pb-3 hover:text-[var(--forge)] hover:border-[var(--forge)] transition-all duration-300"
+          >
+            クラス・料金を見る
+            <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
+        </ScrollReveal>
       </div>
 
       {/* Bottom spacing */}

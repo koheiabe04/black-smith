@@ -4,36 +4,41 @@ import ScrollReveal from "../ScrollReveal";
 
 const courses = [
   {
+    id: "welding-challenge",
     name: "溶接チャレンジ",
     en: "WELDING\nCHALLENGE",
-    body: "溶接がはじめての方向け。道具の扱い方や安全の考え方を学びながら、実際に鉄をつなぐ体験を行います。",
-    age: "6歳〜", time: "1h〜", price: "¥4,000〜",
+    body: "はじめてでも大丈夫。道具の使い方から丁寧に。火花を散らして、鉄と鉄をつないでみよう。",
+    priceNote: "1〜4名までOK。みんなで来ると、ひとりあたりもっとお得。",
+    age: "6歳〜", time: "1h〜", price: "¥12,000/枠",
     level: 1,
     image: "/images/courses/challenge.jpg",
     alt: "初心者向け溶接チャレンジクラスの体験風景",
   },
   {
+    id: "creative",
     name: "クリエイティブ",
     en: "CREATIVE",
-    body: "棚やアウトドア用品など、完成後も日常で使い続けることを前提とした製作に取り組むクラスです。",
+    body: "棚やアウトドアギアなど、家に持ち帰ってそのまま使えるものを作る。暮らしに溶け込む一点もの。",
     age: "12歳〜", time: "2h〜", price: "¥11,000〜",
     level: 2,
     image: "/images/courses/creative.jpg",
     alt: "実用品を製作するクリエイティブクラスの様子",
   },
   {
+    id: "my-design",
     name: "マイデザイン",
     en: "MY\nDESIGN",
-    body: "自分で考えたアイデアをもとに、設計から製作まで。「こういう物が欲しい」を出発点に形にします。",
+    body: "「こういうのが欲しい」——その想いを、設計から製作まで丸ごと形にする。世界にひとつだけ。",
     age: "12歳〜", time: "5h〜", price: "¥50,000〜",
     level: 3,
     image: "/images/courses/mydesign.jpg",
     alt: "オリジナルデザインを形にするマイデザインクラス",
   },
   {
+    id: "self-repair",
     name: "セルフリペア",
     en: "SELF\nREPAIR",
-    body: "壊れた家具や道具を、もう一度使える状態に。「直して使い続けたい」という気持ちを応援します。",
+    body: "捨てるのはまだ早い。壊れた家具や道具を、自分の手でもう一度使えるようにする。",
     age: "15歳〜", time: "2h〜", price: "¥11,000〜",
     level: 2,
     image: "/images/courses/repair.jpg",
@@ -87,7 +92,7 @@ export default function Courses() {
         <div className="flex flex-col gap-6 md:hidden">
           {courses.map((c, i) => (
             <ScrollReveal key={i} delay={i * 100} animation="fade-up">
-              <div className="group relative overflow-hidden border border-[var(--iron)] bg-[var(--charcoal)] hover:border-[var(--forge)]/30 transition-all duration-700">
+              <Link href={`/courses#${c.id}`} className="block group relative overflow-hidden border border-[var(--iron)] bg-[var(--charcoal)] hover:border-[var(--forge)]/30 transition-all duration-700">
                 <div className="relative aspect-[16/10] bg-[var(--soot)] overflow-hidden">
                   <Image src={c.image} alt={c.alt} fill sizes="(max-width: 768px) 100vw, 420px" className="object-cover" />
                   <div className="absolute bottom-4 left-5 z-10">
@@ -106,6 +111,11 @@ export default function Courses() {
                     <span className="font-display text-[9px] tracking-[0.3em] text-[var(--steel)]">LV.{c.level}</span>
                   </div>
                   <p className="mt-5 text-[var(--ash)] text-sm leading-[2.1]">{c.body}</p>
+                  {"priceNote" in c && (
+                    <p className="mt-2 text-[var(--forge)] text-xs font-bold leading-relaxed">
+                      {c.priceNote}
+                    </p>
+                  )}
                   <div className="mt-6 pt-5 border-t border-[var(--iron)] flex gap-6">
                     <div>
                       <span className="font-display text-[8px] tracking-[0.3em] text-[var(--steel)] block">AGE</span>
@@ -118,7 +128,7 @@ export default function Courses() {
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[var(--forge)] group-hover:w-full transition-all duration-700" />
-              </div>
+              </Link>
             </ScrollReveal>
           ))}
         </div>
@@ -129,7 +139,7 @@ export default function Courses() {
       <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-[1600px] mx-auto px-6 md:px-12">
         {courses.map((c, i) => (
           <ScrollReveal key={i} delay={i * 100} animation="fade-up">
-            <div className="group relative overflow-hidden border border-[var(--iron)] bg-[var(--charcoal)] hover:border-[var(--forge)]/30 transition-all duration-700 h-full flex flex-col">
+            <Link href={`/courses#${c.id}`} className="group relative overflow-hidden border border-[var(--iron)] bg-[var(--charcoal)] hover:border-[var(--forge)]/30 transition-all duration-700 h-full flex flex-col">
               <div className="relative aspect-[16/10] bg-[var(--soot)] overflow-hidden">
                 <Image src={c.image} alt={c.alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
                 <div className="absolute bottom-4 left-5 z-10">
@@ -140,15 +150,20 @@ export default function Courses() {
                 <div className="absolute inset-0 bg-[var(--forge)]/0 group-hover:bg-[var(--forge)]/[0.08] transition-colors duration-700" />
               </div>
               <div className="p-6 lg:p-8 flex flex-col flex-1">
-                <div className="flex items-start justify-between gap-3">
+                <div>
                   <h3 className="text-xl lg:text-2xl font-black text-[var(--cream)] tracking-tight leading-tight">{c.name}</h3>
-                  <span className="font-display text-xl lg:text-2xl font-extrabold text-[var(--forge)] shrink-0">{c.price}</span>
+                  <span className="font-display text-lg lg:text-xl font-extrabold text-[var(--forge)] mt-2 block">{c.price}</span>
                 </div>
                 <div className="mt-4 flex items-center gap-3">
                   <Level n={c.level} />
                   <span className="font-display text-[9px] tracking-[0.3em] text-[var(--steel)]">LV.{c.level}</span>
                 </div>
                 <p className="mt-5 text-[var(--ash)] text-sm leading-[2.1] flex-1">{c.body}</p>
+                {"priceNote" in c && (
+                  <p className="mt-2 text-[var(--forge)] text-xs font-bold leading-relaxed">
+                    {c.priceNote}
+                  </p>
+                )}
                 <div className="mt-6 pt-5 border-t border-[var(--iron)] flex gap-6">
                   <div>
                     <span className="font-display text-[8px] tracking-[0.3em] text-[var(--steel)] block">AGE</span>
@@ -161,7 +176,7 @@ export default function Courses() {
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[var(--forge)] group-hover:w-full transition-all duration-700" />
-            </div>
+            </Link>
           </ScrollReveal>
         ))}
       </div>

@@ -4,20 +4,20 @@ import ScrollReveal from "../ScrollReveal";
 const features = [
   {
     num: "01",
-    title: "日常で使える\n実用品を作る",
-    body: "棚やラック、焚き火台など、暮らしの中で使うことを前提にしたものづくり。完成品は家に持ち帰って、毎日使える。",
+    title: "持って帰って、\n毎日使う",
+    body: "棚、ラック、焚き火台。作ったものがそのまま暮らしの道具になる。それが一番うれしい。",
     image: "/images/features/01-practical.jpg",
   },
   {
     num: "02",
-    title: "できることが\n増えていく",
-    body: "チャレンジからクリエイティブ、マイデザインへ。経験に応じて、少しずつステップアップ。",
+    title: "来るたびに、\nできることが増える",
+    body: "最初は一本の溶接から。気づけば棚を組み、いつかオリジナルの一点ものを作れるように。",
     image: "/images/features/02-stepup.jpg",
   },
   {
     num: "03",
-    title: "考えたことを\n形にできる",
-    body: "「こういうものが欲しい」を出発点に、設計から製作まで。スタッフが技術面をサポート。",
+    title: "頭の中のアイデアを、\n鉄で形にする",
+    body: "「こういうのが欲しいんだけど」——その一言から始まる。設計も製作も、スタッフと一緒に。",
     image: "/images/features/03-mydesign.jpg",
   },
 ];
@@ -39,9 +39,9 @@ export default function Features() {
           <div className="mt-6 md:mt-8">
             <ScrollReveal animation="reveal-up" delay={100}>
               <h2 className="text-[clamp(2.4rem,6vw,5rem)] font-black leading-[1.05] tracking-tight text-[var(--cream)]">
-                Black Smith が
+                ここでしか
                 <br />
-                選ばれる<span className="text-[var(--forge)]">理由</span>
+                できない<span className="text-[var(--forge)]">こと</span>
               </h2>
             </ScrollReveal>
           </div>
@@ -50,7 +50,7 @@ export default function Features() {
           <ScrollReveal animation="fade-up" delay={250}>
             <div className="md:ml-auto md:max-w-[420px] mt-10 md:mt-[-2rem]">
               <p className="text-[var(--ash)] text-sm leading-[2.2] border-l-2 border-[var(--forge)]/30 pl-5">
-                「作って終わり」ではなく、暮らしの中で使える実用品を、自分の手でつくるアトリエです。
+                作ったものは飾りじゃない。家に帰って、毎日使うもの。
               </p>
             </div>
           </ScrollReveal>
@@ -130,9 +130,9 @@ export default function Features() {
                   <span className="font-display text-[5rem] md:text-[8rem] text-white/10 leading-none shrink-0 block">&ldquo;</span>
                   <div className="-mt-8 md:mt-0">
                     <p className="text-white text-lg md:text-xl leading-[2] font-medium">
-                      ものづくりの楽しさを育む。<br className="hidden md:inline" />
-                      知らなかった人には知ってほしい、<br className="hidden md:inline" />
-                      忘れていた人には思い出してほしい。
+                      自分の手で作るって、こんなに楽しかったのか。<br className="hidden md:inline" />
+                      知らなかった人に届けたい。<br className="hidden md:inline" />
+                      忘れてた人に、思い出してほしい。
                     </p>
                     <span className="font-display text-[10px] tracking-[0.4em] text-white/30 mt-6 block font-bold">— BLACK SMITH</span>
                   </div>

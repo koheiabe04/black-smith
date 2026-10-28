@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { articles } from "../lib/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://black-smith.jp";
 
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: base,
       lastModified: new Date(),
@@ -41,4 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
   ];
+
+  const articlePages: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${base}/news/${article.slug}`,
+    lastModified: new Date(article.updatedAt ?? article.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...articlePages];
 }

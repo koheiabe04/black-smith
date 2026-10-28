@@ -19,22 +19,22 @@ export default function CTA() {
       <div className="relative max-w-[1600px] mx-auto px-6 md:px-12">
         <ScrollReveal animation="reveal-up">
           <h2 className="text-[clamp(2.2rem,6vw,5rem)] font-black leading-[1.05] tracking-tight text-[var(--cream)] max-w-[800px]">
-            ものづくりとの関わりを、<br />
-            <span className="text-[var(--forge)]">ここから。</span>
+            やってみたいなら、<br />
+            <span className="text-[var(--forge)]">動くだけ。</span>
           </h2>
         </ScrollReveal>
 
         <ScrollReveal animation="fade-up" delay={200}>
           <p className="mt-8 text-[var(--ash)] text-sm leading-[2.2] max-w-[440px]">
-            やりたいことが決まっていなくても大丈夫。まずは一歩。
+            作りたいものがまだ決まってなくても大丈夫。まずは話してみませんか。
           </p>
         </ScrollReveal>
 
         <div className="mt-16 md:mt-24 grid sm:grid-cols-3 gap-5">
           {[
-            { title: "クラスを見る", body: "制作内容や雰囲気を確認。", href: "/#courses", label: "VIEW", external: false },
-            { title: "まずは相談", body: "クラス選びや持ち物など、気になることを何でも。フォームから気軽にどうぞ。", href: "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog", label: "CONTACT", external: true },
-            { title: "体験を予約する", body: "参加したいクラスが決まっている方はこちら。日程の調整を行います。", href: "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog", label: "RESERVE", external: true },
+            { title: "クラスを見る", body: "溶接チャレンジ・クリエイティブ・マイデザイン・セルフリペア。4つのクラスの料金・内容を比較できます。", href: "/courses", label: "VIEW", external: false },
+            { title: "気軽に相談する", body: "「何から始めればいい？」でもOK。気になることは何でもフォームからどうぞ。", href: "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog", label: "CONTACT", external: true },
+            { title: "体験を予約する", body: "やりたいことが決まったら、日程を押さえましょう。", href: "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog", label: "RESERVE", external: true },
           ].map((c, i) => {
             const cardClass = "group block border border-[var(--iron)] bg-[var(--charcoal)] p-8 md:p-10 relative overflow-hidden transition-all duration-700 hover:border-[var(--forge)]/40 hover:-translate-y-2";
             const content = (

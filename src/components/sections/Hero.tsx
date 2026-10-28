@@ -146,7 +146,7 @@ export default function Hero() {
         >
           溶接・金属加工の体験施設
           <span className="inline-block mx-3 w-[1px] h-[14px] bg-[var(--steel)] align-middle" />
-          <span className="text-[var(--ash)]">6歳から参加OK</span>
+          <span className="text-[var(--ash)]">6歳からOK</span>
         </p>
 
         {/* Sub + CTA */}
@@ -159,10 +159,10 @@ export default function Hero() {
           }}
         >
           <p className="text-[var(--ash)] text-sm leading-[2.2] max-w-[420px]">
-            溶接・金属加工を体験できるアトリエ。<br />
-            初心者から経験者まで、6歳から参加OK。<br />
-            棚やピザ窯、壊れた道具の修理まで——<br />
-            自分の手で「作る・直す」を始めよう。
+            火花が散る。鉄が繋がる。形になる。<br />
+            棚もピザ窯も、壊れた道具の修理も——<br />
+            ぜんぶ、自分の手でやってみる場所。<br />
+            はじめての人も、6歳からどうぞ。
           </p>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "../../components/ScrollReveal";
@@ -12,16 +12,16 @@ const courses = [
     id: "welding-challenge",
     name: "溶接チャレンジ",
     en: "WELDING CHALLENGE",
-    tagline: "火花を散らせ。最初の一歩を。",
+    tagline: "火花を散らせ。はじめの一歩。",
     heroDesc:
-      "はじめて溶接に触れる方のための入門クラス。道具の正しい扱い方、安全への向き合い方を学びながら、実際に鉄と鉄をつなぐ体験を行います。完成したものを手に持ったとき、「自分にもできた」という感覚が芽生えるはずです。",
+      "溶接、触ったことないけど大丈夫？——大丈夫です。道具の持ち方、火の扱い方、ひとつずつ一緒にやっていきます。鉄と鉄がくっついた瞬間、「自分にもできた」って思えるはず。そこから始まります。",
     details: [
       {
         label: "こんな方におすすめ",
         items: [
-          "溶接に興味はあるけれど、触れたことがない方",
-          "親子でものづくり体験を楽しみたい方",
-          "非日常の体験をしてみたい方",
+          "溶接に興味はあるけど、触ったことがない",
+          "親子で一緒にものづくりを楽しみたい",
+          "いつもと違う体験がしたい",
         ],
       },
       {
@@ -43,34 +43,39 @@ const courses = [
     ],
     age: "6歳〜",
     time: "1時間〜",
-    price: "¥4,000〜",
+    price: "¥12,000/枠",
     level: 1,
     image: "/images/courses/challenge.jpg",
-    note: "※ 小学生以下のお子様は保護者同伴が必要です",
+    note: "※ 1枠あたり1名〜4名まで参加可能（税込） ※完全予約制 ※小学生以下のお子様は保護者同伴が必要です",
+    groupPricing: [
+      { people: 1, perPerson: "12,000" },
+      { people: 2, perPerson: "6,000" },
+      { people: 3, perPerson: "4,000" },
+      { people: 4, perPerson: "3,000" },
+    ],
   },
   {
     id: "creative",
     name: "クリエイティブ",
     en: "CREATIVE",
-    tagline: "暮らしに溶け込む、鉄のプロダクト。",
+    tagline: "暮らしに馴染む、鉄のプロダクト。",
     heroDesc:
-      "棚、ラック、アウトドアギア — 完成後も日常で使い続けることを前提に設計・製作するクラスです。用意されたデザインの中から選び、寸法を決め、溶接と仕上げまで一貫して体験。「買う」のではなく「作る」暮らしの入口がここにあります。",
+      "棚、ラック、アウトドアギア——作ったものを家に持ち帰って、毎日使う。それがこのクラスのいちばんの醍醐味です。デザインを選んで、サイズを決めて、溶接して仕上げる。買うのではなく、作る暮らしの入口。",
     details: [
       {
         label: "こんな方におすすめ",
         items: [
-          "実際に使えるものを自分の手で作りたい方",
-          "インテリアやアウトドアにこだわりがある方",
-          "溶接の基本は理解していて、次のステップに進みたい方",
+          "使えるものを自分の手で作ってみたい",
+          "インテリアやアウトドアにこだわりがある",
+          "溶接の基本はわかったので、次に進みたい",
         ],
       },
       {
         label: "体験の流れ",
         items: [
-          "デザイン選び・サイズの打ち合わせ（20分）",
-          "材料カット・曲げ加工（30分）",
+          "作成物の選択・サイズの打ち合わせ（20分）",
           "溶接・組み立て（60分〜）",
-          "仕上げ・塗装（30分）",
+          "仕上げ・お持ち帰り（30分）",
         ],
       },
       {
@@ -94,16 +99,16 @@ const courses = [
     id: "my-design",
     name: "マイデザイン",
     en: "MY DESIGN",
-    tagline: "「こんなの欲しい」を、鉄で形に。",
+    tagline: "「こんなの欲しい」を、鉄で叶える。",
     heroDesc:
-      "既製品では見つからない、あなただけの一点もの。「こういうものが欲しい」というアイデアを出発点に、設計図の作成から素材選び、製作、仕上げまでをフルサポート。世界にひとつだけのプロダクトが、あなたの手から生まれます。",
+      "売ってないなら、作ればいい。「こういうのが欲しいんだけど」——そのアイデアを出発点に、設計から素材選び、製作、仕上げまで一緒にやります。世界にひとつ、あなたの手から生まれるプロダクト。",
     details: [
       {
         label: "こんな方におすすめ",
         items: [
-          "市販品にはない、自分だけのものが欲しい方",
-          "空間やサイズにぴったり合う家具を求めている方",
-          "ものづくりの全工程を体験したい方",
+          "市販品にはない、自分だけのものが欲しい",
+          "空間やサイズにぴったり合う家具が欲しい",
+          "設計から完成まで全部やってみたい",
         ],
       },
       {
@@ -138,14 +143,14 @@ const courses = [
     en: "SELF REPAIR",
     tagline: "捨てるな、直せ。",
     heroDesc:
-      "壊れた椅子の脚、折れた工具、錆びたフェンス — 「まだ使いたい」と思うものを、自分の手でもう一度蘇らせるクラスです。溶接や研磨で修復し、防錆処理を施して実用に戻す。直して使い続ける暮らしは、いちばん誠実なものづくりです。",
+      "壊れた椅子の脚、折れた工具、錆びたフェンス。「もう使えない」と思っていたものを、自分の手でもう一度蘇らせる。溶接で繋ぎ、研磨で整え、防錆処理をして現役に戻す。直して使い続けるって、いちばんかっこいいものづくりだと思う。",
     details: [
       {
         label: "こんな方におすすめ",
         items: [
-          "壊れたけど愛着があり、捨てられないものがある方",
-          "金属製品の修理方法を学びたい方",
-          "サステナブルな暮らしに関心がある方",
+          "壊れたけど愛着があって、捨てられないものがある",
+          "金属製品の直し方を自分で覚えたい",
+          "使い捨てじゃない暮らしをしたい",
         ],
       },
       {
@@ -222,7 +227,25 @@ const breadcrumbJsonLd = {
 /* ─── Page Component ─── */
 
 export default function CoursesClient() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash.slice(1);
+      const idx = courses.findIndex((c) => c.id === hash);
+      return idx >= 0 ? idx : 0;
+    }
+    return 0;
+  });
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      const idx = courses.findIndex((c) => c.id === hash);
+      if (idx >= 0) setActiveTab(idx);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
   const active = courses[activeTab];
 
   return (
@@ -253,17 +276,17 @@ export default function CoursesClient() {
 
           <ScrollReveal animation="reveal-up" delay={100}>
             <h1 className="text-[clamp(2.2rem,6vw,4.5rem)] font-black leading-[1.05] tracking-tight text-[var(--cream)]">
-              鉄を知り、鉄で作る。
+              鉄に触れ、鉄で作る。
               <br />
-              <span className="text-[var(--forge)]">4つの体験。</span>
+              <span className="text-[var(--forge)]">4つの入口。</span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={250}>
             <p className="mt-8 max-w-2xl text-[var(--ash)] text-base md:text-lg leading-[2]">
-              はじめての溶接体験から、世界にひとつだけのオーダーメイドまで。
+              「溶接って何？」からでも、「自分だけの一点ものを作りたい」でも。
               <br className="hidden md:block" />
-              あなたのレベルと目的に合わせた4つのクラスをご用意しています。
+              やりたいことに合わせて、ちょうどいいクラスが見つかります。
             </p>
           </ScrollReveal>
 
@@ -388,6 +411,34 @@ export default function CoursesClient() {
                 <p className="mt-4 text-[var(--worn)] text-xs leading-relaxed">
                   {active.note}
                 </p>
+              )}
+
+              {"groupPricing" in active && active.groupPricing && (
+                <div className="mt-6 border border-[var(--iron)] p-5">
+                  <p className="text-[var(--cream)] text-sm font-bold mb-1">
+                    1枠 12,000円（税込）
+                  </p>
+                  <p className="text-[var(--ash)] text-xs leading-[1.8] mb-4">
+                    人数にかかわらず、1枠の料金は12,000円です。<br />
+                    ご家族やご友人、仲間と一緒にご参加いただけます。
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {(active.groupPricing as { people: number; perPerson: string }[]).map((g) => (
+                      <div
+                        key={g.people}
+                        className="flex items-center justify-between px-3 py-2 bg-[var(--black)]/40 text-xs"
+                      >
+                        <span className="text-[var(--ash)]">{g.people}名で参加</span>
+                        <span className="text-[var(--forge)] font-bold">
+                          1名あたり ¥{g.perPerson}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-3 text-[var(--worn)] text-[10px]">
+                    ※1枠あたり最大4名まで
+                  </p>
+                </div>
               )}
             </div>
           </div>
@@ -568,7 +619,7 @@ export default function CoursesClient() {
                     持ち物
                   </h3>
                   <p className="text-[var(--ash)] text-sm leading-[2]">
-                    汚れてもよい服装（長袖・長ズボン推奨）、運動靴でお越しください。溶接マスク・革手袋・エプロンはこちらでご用意しています。
+                    汚れてもいい長袖・長ズボンと運動靴で来てください。溶接マスクや革手袋、エプロンはこちらで全部揃えています。
                   </p>
                 </div>
                 <div>
@@ -577,7 +628,7 @@ export default function CoursesClient() {
                     予約について
                   </h3>
                   <p className="text-[var(--ash)] text-sm leading-[2]">
-                    完全予約制です。お問い合わせフォームまたはメールにてご連絡ください。ご希望の日程・クラス・人数をお知らせいただければ、折り返しご案内いたします。
+                    完全予約制です。フォームかメールで、希望の日程・クラス・人数を教えてください。折り返しご連絡します。
                   </p>
                 </div>
                 <div>
@@ -586,7 +637,7 @@ export default function CoursesClient() {
                     キャンセルポリシー
                   </h3>
                   <p className="text-[var(--ash)] text-sm leading-[2]">
-                    前日までのキャンセルは無料です。当日キャンセルの場合、料金の50%を頂戴しております。なお、体験開始後に体調不良や恐怖心等により作業の継続が困難になった場合の返金は原則としていたしかねますので、あらかじめご了承ください。
+                    前日までなら無料でキャンセルできます。当日キャンセルは料金の50%をいただいています。体験開始後の返金は原則できませんので、ご了承ください。
                   </p>
                 </div>
               </div>
@@ -600,7 +651,7 @@ export default function CoursesClient() {
                     安全について
                   </h3>
                   <p className="text-[var(--ash)] text-sm leading-[2]">
-                    すべてのクラスで、作業開始前に安全講習を行います。保護具の着用を徹底し、経験豊富なスタッフが常時サポートいたします。お子様の参加も安心してお任せください。
+                    どのクラスでも最初に安全講習を行います。保護具は必ず着用、スタッフが常にそばでサポート。お子さんの参加も安心してお任せください。
                   </p>
                 </div>
                 <div>
@@ -609,7 +660,7 @@ export default function CoursesClient() {
                     お支払い方法
                   </h3>
                   <p className="text-[var(--ash)] text-sm leading-[2]">
-                    現金または銀行振込にてお支払いいただけます。体験当日に現地でのお支払いも可能です。
+                    現金か銀行振込で。当日、現地でのお支払いもOKです。
                   </p>
                 </div>
                 <div>
@@ -618,7 +669,7 @@ export default function CoursesClient() {
                     グループ・団体利用
                   </h3>
                   <p className="text-[var(--ash)] text-sm leading-[2]">
-                    企業研修、修学旅行、チームビルディングなどの団体利用も承ります。人数やご要望に応じてプログラムをカスタマイズいたします。
+                    企業研修、修学旅行、チームビルディングにも。人数やご要望に合わせてプログラムを組みます。
                   </p>
                 </div>
               </div>
@@ -642,15 +693,15 @@ export default function CoursesClient() {
 
           <ScrollReveal animation="reveal-up" delay={100}>
             <h2 className="mt-6 text-[clamp(1.8rem,4.5vw,3.5rem)] font-black leading-[1.1] tracking-tight text-[var(--cream)]">
-              まずは火花を散らしてみよう。
+              まずは、火花を散らしてみよう。
             </h2>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={250}>
             <p className="mt-6 text-[var(--ash)] text-base md:text-lg max-w-xl mx-auto leading-[2]">
-              気になるクラスが見つかったら、お気軽にお問い合わせください。
+              気になるクラスがあったら、気軽に連絡してください。
               <br className="hidden md:block" />
-              あなたに合った体験プランをご提案します。
+              あなたにぴったりの体験を一緒に考えます。
             </p>
           </ScrollReveal>
 
