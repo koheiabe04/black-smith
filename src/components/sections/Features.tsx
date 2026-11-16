@@ -90,7 +90,7 @@ export default function Features() {
                     <div className="absolute top-0 left-0 w-full h-[2px] bg-[var(--forge)] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[var(--ease-out-expo)] origin-left" />
 
                     {/* Big number watermark */}
-                    <span className="absolute top-4 right-5 font-display text-[6rem] md:text-[7rem] font-extrabold text-white/[0.04] leading-none pointer-events-none select-none">
+                    <span aria-hidden="true" className="absolute top-4 right-5 font-display text-[6rem] md:text-[7rem] font-extrabold text-white/[0.04] leading-none pointer-events-none select-none">
                       {f.num}
                     </span>
 

@@ -1,6 +1,6 @@
 export default function Marquee() {
   return (
-    <div className="relative py-10 md:py-14 overflow-hidden select-none bg-[var(--charcoal)] border-y border-[var(--iron)]/50">
+    <div aria-hidden="true" className="relative py-10 md:py-14 overflow-hidden select-none bg-[var(--charcoal)] border-y border-[var(--iron)]/50">
       {/* Row 1 — giant, slow */}
       <div className="flex whitespace-nowrap animate-[marquee_50s_linear_infinite]">
         {Array.from({ length: 8 }).map((_, i) => (
@@ -14,7 +14,7 @@ export default function Marquee() {
       <div className="flex whitespace-nowrap animate-[marqueeReverse_35s_linear_infinite] mt-4">
         {Array.from({ length: 10 }).map((_, i) => (
           <span key={i} className="font-display text-sm md:text-base font-semibold tracking-[0.4em] text-[var(--steel)]/60 mx-5">
-            FORGED IN IWATE&nbsp;&nbsp;●&nbsp;&nbsp;HANDS ON&nbsp;&nbsp;●&nbsp;&nbsp;MAKE IT YOURS&nbsp;&nbsp;●&nbsp;&nbsp;SINCE 2024&nbsp;&nbsp;●&nbsp;&nbsp;
+            FORGED IN IWATE&nbsp;&nbsp;●&nbsp;&nbsp;HANDS ON&nbsp;&nbsp;●&nbsp;&nbsp;MAKE IT YOURS&nbsp;&nbsp;●&nbsp;&nbsp;MADE BY HAND&nbsp;&nbsp;●&nbsp;&nbsp;
           </span>
         ))}
       </div>

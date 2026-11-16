@@ -12,14 +12,7 @@ export const metadata: Metadata = {
     description:
       "溶接体験のコツ、初心者ガイド、親子体験レポートなど。ものづくりに役立つ情報をお届けします。",
     url: "https://black-smith.jp/news",
-    images: [
-      {
-        url: "https://black-smith.jp/images/logo/logo.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Black Smith コラム・最新情報",
-      },
-    ],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Black Smith — 溶接・鉄の加工体験アトリエ" }],
   },
 };
 
@@ -87,7 +80,7 @@ export default function NewsPage() {
                   <time className="font-display text-xs text-[var(--steel)] tracking-wider">
                     {article.date}
                   </time>
-                  <span className="px-2 py-0.5 text-[9px] font-bold tracking-wider border border-[var(--forge)]/30 text-[var(--forge)]">
+                  <span className="px-2 py-0.5 text-[10px] font-bold tracking-wider border border-[var(--forge)]/30 text-[var(--forge)]">
                     {categoryLabel[article.category] ?? article.category}
                   </span>
                 </div>

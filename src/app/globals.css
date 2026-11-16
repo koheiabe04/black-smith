@@ -44,7 +44,7 @@
   }
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
@@ -53,7 +53,7 @@ body {
   font-family: var(--font-noto), "Hiragino Kaku Gothic ProN", sans-serif;
   color: var(--cream);
   background: var(--black);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0.02em;
 }
@@ -65,7 +65,7 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: var(--steel); }
 :focus-visible { outline: 2px solid var(--forge); outline-offset: 2px; }
 
-.font-display { font-family: var(--font-syne), monospace; }
+.font-display { font-family: var(--font-syne), var(--font-noto), "Hiragino Kaku Gothic ProN", sans-serif; }
 
 /* ── Noise — fixed full-screen grain ── */
 .noise::after {

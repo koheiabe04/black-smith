@@ -8,14 +8,16 @@ export default function Hero() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    videoRef.current?.play().catch(() => {});
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) videoRef.current?.pause();
+    else videoRef.current?.play().catch(() => {});
     // Stagger entrance after loading screen
     const t = setTimeout(() => setLoaded(true), 1200);
     return () => clearTimeout(t);
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[700px] flex flex-col justify-end overflow-hidden bg-[var(--black)]">
+    <section className="relative h-[100svh] min-h-[640px] md:min-h-[700px] flex flex-col justify-end overflow-hidden bg-[var(--black)]">
       {/* ── Background image fallback ── */}
       <Image
         src="/images/hero-fallback.jpg"
@@ -32,6 +34,8 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[2s]"
         style={{ opacity: loaded ? 0.55 : 0 }}
         autoPlay muted loop playsInline preload="metadata"
+        poster="/images/hero-fallback.jpg"
+        aria-hidden="true"
       >
         <source src="/hero.webm" type="video/webm" />
         <source src="/hero.mp4" type="video/mp4" />
@@ -87,7 +91,7 @@ export default function Hero() {
           }}
         >
           <div className="h-[1px] w-12 bg-[var(--forge)]" />
-          <span className="font-display text-[10px] tracking-[0.4em] text-[var(--worn)] font-bold">
+          <span className="text-[12px] tracking-[0.2em] text-[var(--worn)] font-bold">
             ものづくり体験アトリエ — 岩手・一関
           </span>
         </div>
@@ -165,10 +169,8 @@ export default function Hero() {
             はじめての人も、6歳からどうぞ。
           </p>
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-4 font-display text-xs font-bold tracking-[0.25em] text-[var(--cream)] border-b border-[var(--forge)] pb-3 hover:text-[var(--forge)] transition-colors duration-300"
+            href="/contact"
+            className="group inline-flex items-center gap-4 px-8 py-4 bg-[var(--forge)] text-[var(--black)] font-display text-xs font-bold tracking-[0.25em] hover:bg-[var(--ember)] transition-colors duration-300"
           >
             体験を予約する
             <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,7 +190,7 @@ export default function Hero() {
         role="presentation"
         aria-hidden="true"
       >
-        <span className="font-display text-[8px] tracking-[0.4em] text-[var(--steel)]" style={{ writingMode: "vertical-rl" }}>
+        <span className="font-display text-[10px] tracking-[0.4em] text-[var(--steel)]" style={{ writingMode: "vertical-rl" }}>
           SCROLL
         </span>
         <div className="w-[1px] h-12 bg-[var(--iron)] relative overflow-hidden">

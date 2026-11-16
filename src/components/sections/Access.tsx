@@ -2,7 +2,7 @@ import ScrollReveal from "../ScrollReveal";
 
 const info = [
   { en: "NAME", label: "施設名", value: "Black Smith" },
-  { en: "ADDRESS", label: "所在地", value: "〒021-0902\n岩手県一関市萩荘霜後２４１" },
+  { en: "ADDRESS", label: "所在地", value: "〒021-0902\n岩手県一関市萩荘霜後241" },
   { en: "HOURS", label: "営業時間", value: "平日 / 09:00〜16:00\n（最終受付15:00 / 完全予約制）" },
   { en: "ACCESS", label: "交通案内", value: "JR東北本線・大船渡線「一ノ関駅」より車で約10分\nお車でお越しの方：駐車場あり" },
 ];
@@ -23,13 +23,13 @@ export default function Access() {
           </h2>
         </ScrollReveal>
 
-        <div className="mt-14 md:mt-20 grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 [&>*]:min-w-0">
           <ScrollReveal animation="fade-up" delay={200}>
             <dl>
               {info.map((item, i) => (
-                <div key={i} className={`py-6 grid grid-cols-[120px_1fr] gap-4 ${i > 0 ? "border-t border-[var(--iron)]" : ""}`}>
+                <div key={i} className={`py-6 grid grid-cols-[96px_1fr] md:grid-cols-[120px_1fr] gap-4 ${i > 0 ? "border-t border-[var(--iron)]" : ""}`}>
                   <dt>
-                    <span className="font-display text-[8px] tracking-[0.4em] text-[var(--steel)] block">{item.en}</span>
+                    <span className="font-display text-[10px] tracking-[0.3em] text-[var(--steel)] block">{item.en}</span>
                     <span className="text-[var(--ash)] text-sm">{item.label}</span>
                   </dt>
                   <dd className="text-[var(--cream)] text-sm whitespace-pre-line leading-[1.9]">{item.value}</dd>
@@ -40,7 +40,7 @@ export default function Access() {
               href="https://maps.google.com/?q=岩手県一関市萩荘霜後241"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 font-display text-[11px] tracking-[0.2em] text-[var(--forge)] font-bold hover:text-[var(--ember)] transition-colors group"
+              className="mt-6 inline-flex items-center gap-2 py-3 font-display text-[12px] tracking-[0.2em] text-[var(--forge)] font-bold hover:text-[var(--ember)] transition-colors group"
             >
               GOOGLE MAPS
               <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@ export default function Access() {
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={300}>
-            <div className="aspect-[4/3] lg:aspect-auto lg:h-full min-h-[320px] relative border border-[var(--iron)] overflow-hidden">
+            <div className="w-full aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[320px] relative border border-[var(--iron)] overflow-hidden">
               <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-[var(--forge)]/20 z-20" />
               <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-[var(--forge)]/20 z-20" />
               <iframe

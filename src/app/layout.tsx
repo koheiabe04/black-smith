@@ -22,9 +22,8 @@ const syne = Syne({
 export const metadata: Metadata = {
   title: "Black Smith｜溶接体験・鉄の加工体験アトリエ｜岩手県一関市",
   description:
-    "岩手県一関市の溶接体験・鉄の加工体験アトリエ Black Smith。親子で楽しめる溶接チャレンジから、DIYアイアンワーク、オーダーメイド制作、セルフリペアまで。初心者歓迎・6歳から参加OK。東北で唯一の本格溶接ものづくり体験。",
+    "岩手県一関市の溶接体験・鉄の加工体験アトリエ Black Smith。親子で楽しめる溶接チャレンジから、DIYアイアンワーク、オーダーメイド制作、セルフリペアまで。初心者歓迎・6歳から参加OK、手ぶらで本格的な溶接を体験できます。",
   metadataBase: new URL("https://black-smith.jp"),
-  alternates: { canonical: "/" },
   openGraph: {
     title: "Black Smith｜溶接体験・鉄の加工体験アトリエ｜岩手県一関市",
     description:
@@ -55,6 +54,7 @@ const jsonLd = {
     "岩手県一関市の溶接・鉄の加工体験アトリエ。初心者から上級者まで、暮らしの中で使えるものづくりを体験できます。親子での溶接体験、DIYアイアンワーク、修理まで。",
   url: "https://black-smith.jp",
   email: "blacksmith.iwate@gmail.com",
+  sameAs: ["https://www.instagram.com/blacksmith_iwate"],
   address: {
     "@type": "PostalAddress",
     postalCode: "021-0902",

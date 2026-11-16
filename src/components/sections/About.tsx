@@ -5,8 +5,8 @@ import Counter from "../Counter";
 
 const stats = [
   { end: 4, suffix: "", label: "クラス", en: "CLASSES" },
-  { end: 6, suffix: "+", label: "歳から参加OK", en: "MIN AGE" },
-  { end: 8, suffix: "名", label: "1枠の定員", en: "CAPACITY" },
+  { end: 6, suffix: "歳", label: "から参加OK", en: "MIN AGE" },
+  { end: 4, suffix: "名", label: "1枠の定員（貸切）", en: "CAPACITY" },
 ];
 
 const principles = [
@@ -44,7 +44,7 @@ export default function About() {
                   className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--soot)]/40 to-transparent" />
-                <span className="absolute -bottom-4 -right-2 font-display font-extrabold text-[8rem] md:text-[10rem] text-stroke text-white/[0.06] leading-none pointer-events-none select-none">
+                <span aria-hidden="true" className="absolute -bottom-4 -right-2 font-display font-extrabold text-[8rem] md:text-[10rem] text-stroke text-white/[0.06] leading-none pointer-events-none select-none">
                   AB
                 </span>
               </div>
@@ -55,11 +55,11 @@ export default function About() {
           <div className="lg:pt-16">
             <ScrollReveal animation="reveal-up" delay={200}>
               <h2 className="text-[clamp(1.8rem,4.5vw,3.8rem)] font-black leading-[1.15] tracking-tight text-[var(--cream)]">
-                買うより、
+                欲しければ、
+                <span className="text-[var(--forge)]">作る</span>。
                 <br />
-                <span className="text-[var(--forge)]">作る</span>ほうが
-                <br />
-                おもしろい。
+                壊れたら、
+                <span className="text-[var(--forge)]">直す</span>。
               </h2>
             </ScrollReveal>
 
@@ -103,7 +103,7 @@ export default function About() {
               <div className="mt-16 grid grid-cols-3 gap-8 pt-10 border-t border-[var(--iron)]/40">
                 {stats.map((d, i) => (
                   <div key={i}>
-                    <span className="font-display text-[8px] tracking-[0.5em] text-[var(--steel)] block">
+                    <span className="font-display text-[10px] tracking-[0.3em] text-[var(--steel)] block">
                       {d.en}
                     </span>
                     <Counter
@@ -127,7 +127,7 @@ export default function About() {
         <ScrollReveal animation="fade-up" delay={700}>
           <Link
             href="/courses"
-            className="group inline-flex items-center gap-3 font-display text-xs font-bold tracking-[0.2em] text-[var(--cream)] border-b border-[var(--forge)]/40 pb-3 hover:text-[var(--forge)] hover:border-[var(--forge)] transition-all duration-300"
+            className="group inline-flex items-center gap-3 pt-3 font-display text-xs font-bold tracking-[0.2em] text-[var(--cream)] border-b border-[var(--forge)]/40 pb-3 hover:text-[var(--forge)] hover:border-[var(--forge)] transition-all duration-300"
           >
             クラス・料金を見る
             <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

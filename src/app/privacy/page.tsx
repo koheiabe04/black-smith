@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description:
     "Black Smith（有限会社光成工業）のプライバシーポリシー。個人情報の取得・利用目的・管理体制について定めています。",
   alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "プライバシーポリシー｜Black Smith",
+    url: "https://black-smith.jp/privacy",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Black Smith — 溶接・鉄の加工体験アトリエ" }],
+  },
 };
 
 const breadcrumbJsonLd = {
@@ -77,7 +82,40 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-lg font-bold text-[var(--cream)] mb-4">
-                4. 個人情報の管理
+                4. 外部サービスの利用
+              </h2>
+              <p>
+                当サイトでは、お問い合わせ・ご予約の受付に Google LLC が提供する「Googleフォーム」を利用しています。フォームに入力された情報は Google のサーバーを通じて当社に届きます。
+              </p>
+              <p className="mt-3">
+                また、サイトの利用状況を把握するため、Google LLC が提供するアクセス解析ツール「Googleアナリティクス」を利用しています。Googleアナリティクスは Cookie を使用して、個人を特定しない形で閲覧情報（閲覧ページ、滞在時間、おおよその地域、使用端末など）を収集します。収集されたデータは Google のプライバシーポリシーに基づいて管理されます。
+              </p>
+              <p className="mt-3">
+                Googleアナリティクスによるデータ収集を無効にしたい場合は、
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout?hl=ja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--forge)] underline underline-offset-4"
+                >
+                  Googleアナリティクス オプトアウト アドオン
+                </a>
+                をご利用いただくか、ブラウザの設定で Cookie を無効にしてください。詳しくは
+                <a
+                  href="https://policies.google.com/technologies/partner-sites?hl=ja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--forge)] underline underline-offset-4"
+                >
+                  Google のサービスを使用するサイトやアプリから収集した情報の Google による使用
+                </a>
+                をご覧ください。
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-lg font-bold text-[var(--cream)] mb-4">
+                5. 個人情報の管理
               </h2>
               <p>
                 当社は、個人情報の漏洩、滅失またはき損を防止するため、適切な安全管理措置を講じます。また、個人情報を取り扱う従業員に対して、必要かつ適切な監督を行います。
@@ -86,7 +124,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-lg font-bold text-[var(--cream)] mb-4">
-                5. 個人情報の開示・訂正・削除
+                6. 個人情報の開示・訂正・削除
               </h2>
               <p>
                 ご本人から個人情報の開示・訂正・削除のご請求があった場合は、本人確認を行った上で、合理的な範囲で速やかに対応いたします。
@@ -95,22 +133,24 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-lg font-bold text-[var(--cream)] mb-4">
-                6. お問い合わせ窓口
+                7. お問い合わせ窓口
               </h2>
               <p>個人情報の取扱いに関するお問い合わせは、下記までご連絡ください。</p>
               <div className="mt-4 p-5 bg-[var(--charcoal)] border border-[var(--iron)]">
                 <p className="font-medium text-[var(--cream)]">
                   有限会社光成工業 / Black Smith
                 </p>
-                <p className="mt-2">〒021-0902 岩手県一関市萩荘霜後２４１</p>
-                <p className="mt-1 font-display">
-                  blacksmith.iwate@gmail.com
+                <p className="mt-2">〒021-0902 岩手県一関市萩荘霜後241</p>
+                <p className="mt-1">
+                  <a href="mailto:blacksmith.iwate@gmail.com" className="text-[var(--forge)] hover:text-[var(--ember)]">
+                    blacksmith.iwate@gmail.com
+                  </a>
                 </p>
               </div>
             </section>
 
             <p className="text-xs text-[var(--steel)] pt-4 border-t border-[var(--iron)]">
-              制定日：2025年1月1日
+              制定日：2025年1月1日／改定日：2026年11月16日
             </p>
           </div>
         </div>

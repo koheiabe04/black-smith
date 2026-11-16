@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { articles, getArticleBySlug, getAllSlugs } from "../../../lib/articles";
+import { getArticleBySlug, getAllSlugs } from "../../../lib/articles";
 import type { Article, ArticleBlock } from "../../../lib/articles";
 import { notFound } from "next/navigation";
 
@@ -27,14 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: article.date,
       ...(article.updatedAt && { modifiedTime: article.updatedAt }),
       images: [
-        {
-          url: article.image
-            ? `https://black-smith.jp${article.image}`
-            : "https://black-smith.jp/images/logo/logo.jpg",
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
+        article.image
+          ? { url: `https://black-smith.jp${article.image}`, alt: article.title }
+          : { url: "/opengraph-image", width: 1200, height: 630, alt: "Black Smith — 溶接・鉄の加工体験アトリエ" },
       ],
     },
   };
@@ -154,6 +149,7 @@ function BlockRenderer({ block }: { block: ArticleBlock }) {
     case "image":
       return (
         <figure className="my-8">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={block.src} alt={block.alt} className="w-full" loading="lazy" />
           {block.caption && (
             <figcaption className="mt-2 text-xs text-[var(--steel)] text-center">

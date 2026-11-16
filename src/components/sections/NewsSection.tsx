@@ -26,7 +26,7 @@ export default function NewsSection() {
               <h2 className="text-3xl md:text-4xl font-black text-[var(--cream)] tracking-tight">最新情報</h2>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={200}>
-              <Link href="/news" className="inline-flex items-center gap-2 mt-5 font-display text-[11px] tracking-[0.2em] text-[var(--forge)] font-bold hover:text-[var(--ember)] transition-colors group">
+              <Link href="/news" className="inline-flex items-center gap-2 mt-2 py-3 font-display text-[12px] tracking-[0.2em] text-[var(--forge)] font-bold hover:text-[var(--ember)] transition-colors group">
                 ALL ARTICLES
                 <svg className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -59,7 +59,7 @@ export default function NewsSection() {
                         <time className="font-display text-[11px] text-[var(--steel)] tracking-wider">
                           {article.date}
                         </time>
-                        <span className="px-2 py-0.5 text-[9px] font-bold tracking-wider border border-[var(--forge)]/30 text-[var(--forge)]">
+                        <span className="px-2 py-0.5 text-[10px] font-bold tracking-wider border border-[var(--forge)]/30 text-[var(--forge)]">
                           {categoryLabel[article.category] ?? article.category}
                         </span>
                       </div>

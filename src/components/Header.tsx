@@ -64,8 +64,10 @@ export default function Header() {
           {/* Hamburger */}
           <button
             onClick={() => setOpen(!open)}
-            className="lg:hidden relative w-10 h-10 z-[60] flex items-center justify-center"
-            aria-label="メニュー"
+            className="lg:hidden relative w-11 h-11 -mr-2 z-[60] flex items-center justify-center"
+            aria-label={open ? "メニューを閉じる" : "メニューを開く"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             <div className="relative w-6 h-4">
               <span className={`absolute left-0 w-full h-[1.5px] bg-[var(--cream)] transition-all duration-300 origin-center ${open ? "top-[7px] rotate-45" : "top-0"}`} />
@@ -78,6 +80,8 @@ export default function Header() {
 
       {/* Mobile Fullscreen Menu */}
       <div
+        id="mobile-menu"
+        aria-hidden={!open}
         className={`fixed inset-0 z-[55] bg-[var(--black)] transition-all duration-600 ${
           open ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
@@ -129,7 +133,7 @@ export default function Header() {
             style={{ opacity: open ? 1 : 0, transition: "opacity 0.6s 600ms" }}
           >
             <p className="font-display tracking-wider">blacksmith.iwate@gmail.com</p>
-            <p className="mt-1 text-[var(--iron)]">岩手県一関市萩荘霜後２４１</p>
+            <p className="mt-1 text-[var(--iron)]">岩手県一関市萩荘霜後241</p>
           </div>
         </div>
       </div>

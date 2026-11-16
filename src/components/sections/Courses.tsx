@@ -39,7 +39,7 @@ const courses = [
     name: "セルフリペア",
     en: "SELF\nREPAIR",
     body: "捨てるのはまだ早い。壊れた家具や道具を、自分の手でもう一度使えるようにする。",
-    age: "15歳〜", time: "2h〜", price: "¥11,000〜",
+    age: "15歳〜", time: "2.5h〜", price: "¥11,000〜",
     level: 2,
     image: "/images/courses/repair.jpg",
     alt: "壊れた金属製品を修復するセルフリペアクラス",
@@ -78,7 +78,7 @@ export default function Courses() {
           <ScrollReveal animation="fade-up" delay={200}>
             <Link
               href="/courses"
-              className="inline-flex items-center gap-2 font-display text-[11px] font-bold tracking-[0.2em] text-[var(--forge)] hover:text-[var(--ember)] transition-colors duration-300 link-slide shrink-0"
+              className="inline-flex items-center gap-2 py-3 font-display text-[12px] font-bold tracking-[0.2em] text-[var(--forge)] hover:text-[var(--ember)] transition-colors duration-300 link-slide shrink-0"
             >
               VIEW ALL COURSES
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -104,27 +104,26 @@ export default function Courses() {
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-xl font-black text-[var(--cream)] tracking-tight leading-tight">{c.name}</h3>
-                    <span className="font-display text-xl font-extrabold text-[var(--forge)] shrink-0">{c.price}</span>
                   </div>
                   <div className="mt-4 flex items-center gap-3">
                     <Level n={c.level} />
-                    <span className="font-display text-[9px] tracking-[0.3em] text-[var(--steel)]">LV.{c.level}</span>
+                    <span className="font-display text-[10px] tracking-[0.3em] text-[var(--steel)]">LV.{c.level}</span>
                   </div>
                   <p className="mt-5 text-[var(--ash)] text-sm leading-[2.1]">{c.body}</p>
-                  {"priceNote" in c && (
-                    <p className="mt-2 text-[var(--forge)] text-xs font-bold leading-relaxed">
-                      {c.priceNote}
-                    </p>
-                  )}
-                  <div className="mt-6 pt-5 border-t border-[var(--iron)] flex gap-6">
-                    <div>
-                      <span className="font-display text-[8px] tracking-[0.3em] text-[var(--steel)] block">AGE</span>
-                      <span className="text-[var(--sand)] text-sm mt-0.5 block">{c.age}</span>
+                  <div className="mt-6 pt-5 border-t border-[var(--iron)] flex items-center justify-between">
+                    <div className="flex gap-6">
+                      <div>
+                        <span className="font-display text-[10px] tracking-[0.3em] text-[var(--steel)] block">AGE</span>
+                        <span className="text-[var(--sand)] text-sm mt-0.5 block">{c.age}</span>
+                      </div>
+                      <div>
+                        <span className="font-display text-[10px] tracking-[0.3em] text-[var(--steel)] block">TIME</span>
+                        <span className="text-[var(--sand)] text-sm mt-0.5 block">{c.time}</span>
+                      </div>
                     </div>
-                    <div>
-                      <span className="font-display text-[8px] tracking-[0.3em] text-[var(--steel)] block">TIME</span>
-                      <span className="text-[var(--sand)] text-sm mt-0.5 block">{c.time}</span>
-                    </div>
+                    <span className="font-display text-[11px] font-bold tracking-[0.15em] text-[var(--forge)] group-hover:text-[var(--ember)] transition-colors">
+                      詳しく見る →
+                    </span>
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[var(--forge)] group-hover:w-full transition-all duration-700" />
@@ -152,27 +151,26 @@ export default function Courses() {
               <div className="p-6 lg:p-8 flex flex-col flex-1">
                 <div>
                   <h3 className="text-xl lg:text-2xl font-black text-[var(--cream)] tracking-tight leading-tight">{c.name}</h3>
-                  <span className="font-display text-lg lg:text-xl font-extrabold text-[var(--forge)] mt-2 block">{c.price}</span>
                 </div>
                 <div className="mt-4 flex items-center gap-3">
                   <Level n={c.level} />
-                  <span className="font-display text-[9px] tracking-[0.3em] text-[var(--steel)]">LV.{c.level}</span>
+                  <span className="font-display text-[10px] tracking-[0.3em] text-[var(--steel)]">LV.{c.level}</span>
                 </div>
                 <p className="mt-5 text-[var(--ash)] text-sm leading-[2.1] flex-1">{c.body}</p>
-                {"priceNote" in c && (
-                  <p className="mt-2 text-[var(--forge)] text-xs font-bold leading-relaxed">
-                    {c.priceNote}
-                  </p>
-                )}
-                <div className="mt-6 pt-5 border-t border-[var(--iron)] flex gap-6">
-                  <div>
-                    <span className="font-display text-[8px] tracking-[0.3em] text-[var(--steel)] block">AGE</span>
-                    <span className="text-[var(--sand)] text-sm mt-0.5 block">{c.age}</span>
+                <div className="mt-6 pt-5 border-t border-[var(--iron)] flex items-center justify-between">
+                  <div className="flex gap-6">
+                    <div>
+                      <span className="font-display text-[10px] tracking-[0.3em] text-[var(--steel)] block">AGE</span>
+                      <span className="text-[var(--sand)] text-sm mt-0.5 block">{c.age}</span>
+                    </div>
+                    <div>
+                      <span className="font-display text-[10px] tracking-[0.3em] text-[var(--steel)] block">TIME</span>
+                      <span className="text-[var(--sand)] text-sm mt-0.5 block">{c.time}</span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-display text-[8px] tracking-[0.3em] text-[var(--steel)] block">TIME</span>
-                    <span className="text-[var(--sand)] text-sm mt-0.5 block">{c.time}</span>
-                  </div>
+                  <span className="font-display text-[11px] font-bold tracking-[0.15em] text-[var(--forge)] group-hover:text-[var(--ember)] transition-colors">
+                    詳しく見る →
+                  </span>
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[var(--forge)] group-hover:w-full transition-all duration-700" />

@@ -5,10 +5,17 @@ export const metadata: Metadata = {
   description:
     "溶接体験・鉄の加工体験のご予約・お問い合わせはこちら。フォームまたはメールで承ります。営業時間: 平日 09:00〜16:00。岩手県一関市のアトリエ Black Smith。",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "お問い合わせ・ご予約｜溶接体験 Black Smith｜岩手県一関市",
+    url: "https://black-smith.jp/contact",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Black Smith — 溶接・鉄の加工体験アトリエ" }],
+  },
 };
 
-const FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?embedded=true";
+const FORM_BASE =
+  "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform";
+const FORM_URL = `${FORM_BASE}?embedded=true`;
+const FORM_OPEN_URL = `${FORM_BASE}?usp=dialog`;
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -55,6 +62,19 @@ export default function ContactPage() {
             loading="lazy"
           />
         </div>
+
+        <p className="mt-4 text-xs text-[var(--steel)] leading-[1.9]">
+          フォームが表示されない場合は
+          <a
+            href={FORM_OPEN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mx-1 inline-block py-1 text-[var(--forge)] underline underline-offset-4 hover:text-[var(--ember)] transition-colors"
+          >
+            こちらから別画面で開いてください
+          </a>
+          。
+        </p>
 
         <div className="mt-10 text-sm text-[var(--steel)] space-y-2">
           <p>

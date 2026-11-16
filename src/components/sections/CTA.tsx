@@ -33,13 +33,13 @@ export default function CTA() {
         <div className="mt-16 md:mt-24 grid sm:grid-cols-3 gap-5">
           {[
             { title: "クラスを見る", body: "溶接チャレンジ・クリエイティブ・マイデザイン・セルフリペア。4つのクラスの料金・内容を比較できます。", href: "/courses", label: "VIEW", external: false },
-            { title: "気軽に相談する", body: "「何から始めればいい？」でもOK。気になることは何でもフォームからどうぞ。", href: "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog", label: "CONTACT", external: true },
-            { title: "体験を予約する", body: "やりたいことが決まったら、日程を押さえましょう。", href: "https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog", label: "RESERVE", external: true },
+            { title: "気軽に相談する", body: "「何から始めればいい？」でもOK。気になることは何でもフォームからどうぞ。", href: "/contact", label: "CONTACT", external: false },
+            { title: "体験を予約する", body: "やりたいことが決まったら、日程を押さえましょう。", href: "/contact", label: "RESERVE", external: false },
           ].map((c, i) => {
             const cardClass = "group block border border-[var(--iron)] bg-[var(--charcoal)] p-8 md:p-10 relative overflow-hidden transition-all duration-700 hover:border-[var(--forge)]/40 hover:-translate-y-2";
             const content = (
               <>
-                <span className="font-display text-[9px] tracking-[0.4em] text-[var(--steel)] font-bold">{c.label}</span>
+                <span className="font-display text-[10px] tracking-[0.4em] text-[var(--steel)] font-bold">{c.label}</span>
                 <h3 className="text-xl md:text-2xl font-black text-[var(--cream)] mt-4 group-hover:text-[var(--forge)] transition-colors duration-500">{c.title}</h3>
                 <p className="mt-3 text-[var(--ash)] text-sm leading-[2.1]">{c.body}</p>
 

@@ -141,9 +141,7 @@ export default function LocalFree() {
           {/* CTA */}
           <div className="flex justify-center pt-4">
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSf1E1xx1djBqwg0tZk1DzpNR9vwyFJBE00UDEFnHPJkwb-zEw/viewform?usp=dialog"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-sm bg-[var(--forge)] hover:bg-[var(--forge-deep)] text-[var(--white)] font-display text-xs font-bold tracking-[0.2em] transition-all duration-300"
             >
               お問い合わせ・ご相談はこちら

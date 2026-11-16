@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description:
     "Black Smith（有限会社光成工業）の特定商取引法に基づく表記。販売事業者情報、料金、キャンセルポリシーをご確認いただけます。",
   alternates: { canonical: "/legal" },
+  openGraph: {
+    title: "特定商取引法に基づく表記｜Black Smith",
+    url: "https://black-smith.jp/legal",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Black Smith — 溶接・鉄の加工体験アトリエ" }],
+  },
 };
 
 const breadcrumbJsonLd = {
@@ -39,11 +44,11 @@ export default function LegalPage() {
 
         <div className="mt-10 max-w-none">
           <div className="space-y-0 text-sm text-[var(--ash)] leading-[1.9]">
-            <table className="w-full border-collapse">
-              <tbody>
+            <table className="block md:table w-full border-collapse">
+              <tbody className="block md:table-row-group">
                 <Row label="販売事業者" value="有限会社光成工業" />
                 <Row label="運営責任者" value="代表取締役（※お問い合わせいただければ開示いたします）" />
-                <Row label="所在地" value="〒021-0902 岩手県一関市萩荘霜後２４１" />
+                <Row label="所在地" value="〒021-0902 岩手県一関市萩荘霜後241" />
                 <Row label="電話番号" value="お問い合わせいただければ遅滞なく開示いたします" />
                 <Row label="メールアドレス" value="blacksmith.iwate@gmail.com" />
                 <Row label="URL" value="https://black-smith.jp" />
@@ -61,7 +66,7 @@ export default function LegalPage() {
                 />
                 <Row
                   label="お支払い方法"
-                  value="現地にて現金払い、または事前のお振込み"
+                  value="現地での現金・クレジットカード払い、または事前のお振込み"
                 />
                 <Row
                   label="お支払い時期"
@@ -73,7 +78,7 @@ export default function LegalPage() {
                 />
                 <Row
                   label="キャンセル・返金について"
-                  value="体験日の3日前までのキャンセルは全額返金いたします。2日前〜前日は料金の50%、当日キャンセルは返金不可となります。また、体験開始後に体調不良や恐怖心等により作業の継続が困難になった場合についても、原則として返金はいたしかねます。"
+                  value="体験日の前日までのキャンセルは無料です（お支払い済みの場合は全額返金いたします）。当日のキャンセルは料金の50%を申し受けます。また、体験開始後に体調不良や恐怖心等により作業の継続が困難になった場合についても、原則として返金はいたしかねます。"
                 />
                 <Row
                   label="特記事項"
@@ -83,7 +88,7 @@ export default function LegalPage() {
             </table>
 
             <p className="text-xs text-[var(--steel)] pt-8 border-t border-[var(--iron)]">
-              制定日：2025年1月1日
+              制定日：2025年1月1日／改定日：2026年11月16日
             </p>
           </div>
         </div>
@@ -94,11 +99,11 @@ export default function LegalPage() {
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <tr className="border-b border-[var(--iron)]">
-      <th className="py-4 pr-6 text-left align-top font-bold text-[var(--cream)] whitespace-nowrap w-[140px] md:w-[180px]">
+    <tr className="block md:table-row border-b border-[var(--iron)]">
+      <th className="block md:table-cell pt-4 md:py-4 md:pr-6 text-left align-top font-bold text-[var(--cream)] md:whitespace-nowrap md:w-[180px]">
         {label}
       </th>
-      <td className="py-4">{value}</td>
+      <td className="block md:table-cell pt-1 pb-4 md:py-4 [overflow-wrap:anywhere]">{value}</td>
     </tr>
   );
 }
