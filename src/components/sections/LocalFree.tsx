@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export default function LocalFree() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -126,6 +127,24 @@ export default function LocalFree() {
             <p className="text-[var(--sand)] text-sm md:text-base mt-1">
               といった段階でもお気軽にご相談ください。
             </p>
+          </div>
+
+          {/* Track record */}
+          <div className="rounded-lg border border-[var(--iron)] bg-[var(--charcoal)]/60 p-5 md:p-6 text-center">
+            <p className="font-display text-[10px] tracking-[0.3em] text-[var(--forge)] font-bold mb-2">
+              TRACK RECORD
+            </p>
+            <p className="text-[var(--sand)] text-sm md:text-base leading-[2]">
+              「ジョブキッズいわて2026」（主催：テレビ岩手）に出展し、
+              <br className="hidden sm:block" />
+              <span className="text-[var(--cream)] font-bold">11回・小学生29名</span>が溶接でペン立てづくりを体験しました。
+            </p>
+            <Link
+              href="/news/jobkids-iwate-2026-report"
+              className="inline-block mt-3 py-2 text-[var(--ember)] text-xs md:text-sm underline underline-offset-4 hover:text-[var(--forge)] transition-colors"
+            >
+              体験レポートと参加者の声を見る
+            </Link>
           </div>
 
           {/* Notes */}

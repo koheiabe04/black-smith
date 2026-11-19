@@ -146,6 +146,25 @@ function BlockRenderer({ block }: { block: ArticleBlock }) {
           </Link>
         </div>
       );
+    case "link":
+      return (
+        <div className="my-8 border border-[var(--iron)] bg-[var(--charcoal)] p-6">
+          {block.source && (
+            <p className="text-xs text-[var(--steel)] mb-2">{block.source}</p>
+          )}
+          <a
+            href={block.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--cream)] font-bold leading-relaxed underline underline-offset-4 hover:text-[var(--forge)] transition-colors"
+          >
+            {block.text}
+          </a>
+          {block.note && (
+            <p className="mt-2 text-xs text-[var(--steel)]">{block.note}</p>
+          )}
+        </div>
+      );
     case "image":
       return (
         <figure className="my-8">

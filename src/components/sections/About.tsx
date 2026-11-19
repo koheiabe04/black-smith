@@ -118,6 +118,21 @@ export default function About() {
                 ))}
               </div>
             </ScrollReveal>
+
+            {/* Media */}
+            <ScrollReveal animation="fade-up" delay={650}>
+              <Link
+                href="/news/media-iwate-nippo-2026-10"
+                className="group mt-10 flex items-center gap-4 py-3 border-t border-[var(--iron)]/40 pt-6"
+              >
+                <span className="font-display text-[10px] tracking-[0.3em] text-[var(--forge)] font-bold shrink-0">
+                  MEDIA
+                </span>
+                <span className="text-[var(--sand)] text-sm leading-relaxed group-hover:text-[var(--forge)] transition-colors">
+                  岩手日報（2026年10月1日）で紹介されました
+                </span>
+              </Link>
+            </ScrollReveal>
           </div>
         </div>
       </div>
